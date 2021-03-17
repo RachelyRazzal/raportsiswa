@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de36c482-eedb-42c9-8dda-c2dd2bc5336d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="kelas/tahunajaran" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     murid.`noinduk` AS murid_noinduk,
+     murid.`nama` AS murid_nama,
+     murid.`nisn` AS murid_nisn,
+     uts.`id_murid` AS uts_id_murid,
+     uts.`nama_murid` AS uts_nama_murid,
+     uts.`kelas_ajaran` AS uts_kelas_ajaran,
+     uts.`semester` AS uts_semester,
+     uts.`id_guru` AS uts_id_guru,
+     uts.`nama_guru` AS uts_nama_guru,
+     uts.`p_agama` AS uts_p_agama,
+     uts.`k_agama` AS uts_k_agama,
+     uts.`p_pkn` AS uts_p_pkn,
+     uts.`k_pkn` AS uts_k_pkn,
+     uts.`p_indo` AS uts_p_indo,
+     uts.`k_indo` AS uts_k_indo,
+     uts.`p_mtk` AS uts_p_mtk,
+     uts.`k_mtk` AS uts_k_mtk,
+     uts.`p_ipa` AS uts_p_ipa,
+     uts.`k_ipa` AS uts_k_ipa,
+     uts.`p_ips` AS uts_p_ips,
+     uts.`k_ips` AS uts_k_ips,
+     uts.`p_seni` AS uts_p_seni,
+     uts.`k_seni` AS uts_k_seni,
+     uts.`p_jas` AS uts_p_jas,
+     uts.`k_jas` AS uts_k_jas,
+     uts.`p_sunda` AS uts_p_sunda,
+     uts.`k_sunda` AS uts_k_sunda,
+     uts.`jumlah` AS uts_jumlah,
+     uts.`rata` AS uts_rata,
+     uts.`predikat` AS uts_predikat,
+     uts.`ket` AS uts_ket
+FROM
+     `uts` uts INNER JOIN `murid` murid ON uts.`id_murid` = murid.`noinduk`
+     AND uts.`nama_murid` = murid.`nama`
+
+WHERE uts.`kelas_ajaran` = $P{kelas/tahunajaran}]]>
+	</queryString>
+	<field name="murid_noinduk" class="java.lang.String"/>
+	<field name="murid_nama" class="java.lang.String"/>
+	<field name="murid_nisn" class="java.lang.String"/>
+	<field name="uts_id_murid" class="java.lang.String"/>
+	<field name="uts_nama_murid" class="java.lang.String"/>
+	<field name="uts_kelas_ajaran" class="java.lang.String"/>
+	<field name="uts_semester" class="java.lang.String"/>
+	<field name="uts_id_guru" class="java.lang.String"/>
+	<field name="uts_nama_guru" class="java.lang.String"/>
+	<field name="uts_p_agama" class="java.lang.Integer"/>
+	<field name="uts_k_agama" class="java.lang.Integer"/>
+	<field name="uts_p_pkn" class="java.lang.Integer"/>
+	<field name="uts_k_pkn" class="java.lang.Integer"/>
+	<field name="uts_p_indo" class="java.lang.Integer"/>
+	<field name="uts_k_indo" class="java.lang.Integer"/>
+	<field name="uts_p_mtk" class="java.lang.Integer"/>
+	<field name="uts_k_mtk" class="java.lang.Integer"/>
+	<field name="uts_p_ipa" class="java.lang.Integer"/>
+	<field name="uts_k_ipa" class="java.lang.Integer"/>
+	<field name="uts_p_ips" class="java.lang.Integer"/>
+	<field name="uts_k_ips" class="java.lang.Integer"/>
+	<field name="uts_p_seni" class="java.lang.Integer"/>
+	<field name="uts_k_seni" class="java.lang.Integer"/>
+	<field name="uts_p_jas" class="java.lang.Integer"/>
+	<field name="uts_k_jas" class="java.lang.Integer"/>
+	<field name="uts_p_sunda" class="java.lang.Integer"/>
+	<field name="uts_k_sunda" class="java.lang.Integer"/>
+	<field name="uts_jumlah" class="java.lang.Integer"/>
+	<field name="uts_rata" class="java.lang.Integer"/>
+	<field name="uts_predikat" class="java.lang.String"/>
+	<field name="uts_ket" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="181" y="11" width="439" height="62" uuid="24b67396-f380-45af-8b53-c768a0560078"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Nilai UTS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="89f767cf-31d8-4c12-baa1-3bd2e9413c30"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="160" height="37" forecolor="#000000" uuid="67abd24c-8dba-40f0-b820-96585233c687"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14"/>
+				</textElement>
+				<text><![CDATA[No Induk Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="160" y="0" width="160" height="37" forecolor="#000000" uuid="9c8ac1ca-03a0-4ff7-a81b-c7c9602aeceb"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14"/>
+				</textElement>
+				<text><![CDATA[Nama Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="320" y="0" width="160" height="37" forecolor="#000000" uuid="b0aaa70c-817c-47de-9997-21c5ca8bb419"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14"/>
+				</textElement>
+				<text><![CDATA[Kelas/Tahun Ajaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="480" y="0" width="160" height="37" forecolor="#000000" uuid="f76ad7da-7c0d-4e84-9ecc-5983813de250"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14"/>
+				</textElement>
+				<text><![CDATA[Rata-rata Nilai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="640" y="0" width="160" height="37" forecolor="#000000" uuid="0701ca3a-c396-41ca-ba2d-d35c1afb1090"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="4e1e081c-24b3-499b-9f7f-bfcf20dbc8e3"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="160" height="15" uuid="0dc3f0c3-cc48-4fff-b854-af5181ca4c3e"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{murid_noinduk}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="160" y="0" width="160" height="15" uuid="7e30d010-2097-4245-917e-dc57544c3812"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uts_nama_murid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="320" y="0" width="160" height="15" uuid="6dea9ed2-ccfc-4392-8bec-1bea1052a9e2"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uts_kelas_ajaran}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="480" y="0" width="160" height="15" uuid="2566b98d-8e96-4009-a19e-107976d700b8"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uts_rata}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="640" y="0" width="160" height="15" uuid="06931d31-2235-43a3-ac67-452be60edfa7"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{uts_ket}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="d8911baf-3e3a-450c-90e0-ae1ef595b8b1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="046f7e21-0ec5-42ce-aaf6-3b964b0eaaaa"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="e0b522ab-565e-415c-9371-0e783324d075"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="41c7f811-e26e-4d71-b399-bd3b65524f61"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="f0c5cad6-63ea-4db3-91cd-42f1745fc121"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
